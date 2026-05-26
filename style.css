@@ -155,13 +155,11 @@ section p {
 }
 
 .block-icon {
-    width: 65px;                 /* Increased from 38px so it's much bigger! */
-    height: 65px;                /* Keeps it a perfect, clean square shape */
-    object-fit: cover;           /* Ensures your pictures fill up the box completely without warping */
-    border: 2px solid #555555;   /* Gives each picture a nice clean block border */
-    border-radius: 4px;          /* Matches the smooth look of your navbar links */
-    background-color: #1a1a1a;   /* Subtle dark background in case images load at different aspect ratios */
-    image-rendering: pixelated;   /* Keeps the images looking super sharp and retro */
+    width: 45px;                 /* Shrunk down from 65px so it fits perfectly */
+    height: 45px;                /* Keeps it a neat, small square */
+    object-fit: contain;         /* Crucial: shrinks the entire picture to fit inside the box without cropping */
+    background-color: #252525;   /* Matches your dark card background so it looks seamless */
+    image-rendering: pixelated;   /* Keeps your Minecraft pictures sharp and blocky */
 }
 
 .card h3 {
