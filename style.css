@@ -135,9 +135,10 @@ section h2 {
 }
 
 .mob-icon {
-    width: 42px;
-    height: 42px;
-    image-rendering: pixelated; /* Keeps mob sprites crisp and pixelated */
+    width: 50px;                 /* Slightly larger size so the 3D spinning block animation looks clear */
+    height: 50px;
+    object-fit: contain;         /* Prevents the block from stretching or squeezing weirdly */
+    image-rendering: pixelated;   /* Crucial: Stops your browser from blurring out the classic blocky texture pixels */
 }
 
 .card h3 {
