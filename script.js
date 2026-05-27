@@ -22,3 +22,21 @@ function generateRandomTip() {
 
 // Add an event listener to run the function when the button is clicked
 tipButton.addEventListener('click', generateRandomTip);
+// Grab our audio and button elements from the HTML DOM
+const musicElement = document.getElementById('bg-music');
+const musicButton = document.getElementById('music-btn');
+
+// Listen for a click on the music button
+musicButton.addEventListener('click', function() {
+    if (musicElement.paused) {
+        // If the track is stopped, start playing it
+        musicElement.play();
+        musicButton.textContent = "⏸ Pause Music";
+        musicButton.style.backgroundColor = "#e74c3c"; // Optional: turns red when playing
+    } else {
+        // If the track is currently playing, pause it
+        musicElement.pause();
+        musicButton.textContent = "🎵 Play Music";
+        musicButton.style.backgroundColor = "#4a4a4a"; // Optional: returns to gray
+    }
+});
