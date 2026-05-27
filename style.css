@@ -223,12 +223,12 @@ footer {
         flex-direction: column;
     }
 }
-/* Container alignment box for header flex matching */
+/* Container alignment box - updated for navigation flow */
 .audio-control-box {
-    display: flex;
+    display: inline-flex;  /* Changed to inline-flex to sit nicely in the text row */
     align-items: center;
-    margin-left: auto; /* Pushes the item cleanly to fill centered header tracks */
-    margin-right: 15px;
+    margin-left: 25px;     /* Gives it the exact same spacing as your other links! */
+    margin-right: 0;       /* Clears old spacing */
 }
 
 #music-btn {
