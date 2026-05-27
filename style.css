@@ -16,7 +16,7 @@ body {
     
     /* Full-page seamless pixelated dark background frame */
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
-                      url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop');
+                      url('https://i.pinimg.com/736x/08/0c/78/080c78eeab42382ff7038ea193d44d60.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -38,11 +38,11 @@ body {
     padding-bottom: 12px;
 }
 
-/* --- Header & Logo Setup --- */
+/* --- Clean Header Flex Layout --- */
 header {
-    background-color: #2e6f40; /* Custom block green color */
+    background-color: #2e6f40; 
     border-bottom: 6px solid #143d20;
-    padding: 1rem 1.5rem;
+    padding: 0.8rem 2rem; /* Adjusted padding for better spacing */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -50,48 +50,39 @@ header {
 
 .header-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; /* This forces Logo to Left and Nav to Right */
+    align-items: center;            /* Vertically centers both elements perfectly */
     max-width: 1100px;
     margin: 0 auto;
-    flex-wrap: wrap;
+    width: 100%;
 }
 
-/* Aligns the 3D text stone graphic elegantly */
 .logo-box {
     display: flex;
     align-items: center;
-    gap: 10px;
 }
 
+/* Perfect scaling constraint for your logo image banner */
 .main-logo {
-    height: 45px;
+    height: 55px; /* Keeps the logo clear and appropriately sized */
     width: auto;
-    filter: drop-shadow(2px 2px 0px #111);
+    object-fit: contain;
 }
 
-.guide-subtitle {
-    font-family: 'Press Start 2P', sans-serif;
-    font-size: 1.1rem;
-    color: #ffffff;
-    text-shadow: 2px 2px 0px #143d20;
-    margin-top: 5px;
+/* Nav Link Bar Rules */
+nav {
+    display: flex;
+    align-items: center;
 }
 
 nav a {
     color: #ffffff;
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 25px; /* Spacing between the text selections */
     font-family: 'Press Start 2P', sans-serif;
-    font-size: 0.75rem;
-    padding: 6px 12px;
-    border-radius: 4px;
+    font-size: 0.8rem;
+    padding: 8px 12px;
     transition: all 0.2s ease;
-}
-
-nav a:hover {
-    color: #ffd700;
-    background-color: #143d20;
 }
 
 /* --- Container Sections --- */
