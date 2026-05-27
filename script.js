@@ -29,14 +29,16 @@ const musicButton = document.getElementById('music-btn');
 // Listen for a click on the music button
 musicButton.addEventListener('click', function() {
     if (musicElement.paused) {
+        // Fixed: Removed the dot at the end of play()
         musicElement.play().catch(function(error) {
-            console.log("Browser blocked autoplay error: ", error);
+            console.log("Audio play failed: ", error);
+        });
         musicButton.textContent = "⏸ Pause Music";
-        musicButton.style.backgroundColor = "#e74c3c"; // Optional: turns red when playing
+        musicButton.style.backgroundColor = "#e74c3c"; 
     } else {
         // If the track is currently playing, pause it
         musicElement.pause();
         musicButton.textContent = "🎵 Play Music";
-        musicButton.style.backgroundColor = "#4a4a4a"; // Optional: returns to gray
+        musicButton.style.backgroundColor = "#4a4a4a"; 
     }
 });
