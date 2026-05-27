@@ -36,25 +36,16 @@ const musicButton = document.getElementById('music-btn');
 // Listen for a click on the music button
 if (musicButton && musicElement) {
     musicButton.addEventListener('click', function() {
-        // Check if the music is ACTUALLY actively playing or not
-        if (musicElement.paused || musicElement.currentTime === 0) {
-            
-            // 1. Force visual state
+        if (musicElement.paused) {
+            musicElement.play().catch(function(error) {
+                console.log("Playback error:", error);
+            });
             musicButton.textContent = "⏸ Pause Music";
-            musicButton.style.backgroundColor = "#e74c3c"; 
-            
-            // 2. Play safely and ignore fast-click abort interruptions
-            const playPromise = musicElement.play();
-            if (playPromise !== undefined) {
-                playPromise.catch(function(error) {
-                    console.log("Play-load catch tracking: ", error);
-                });
-            }
+            musicButton.style.backgroundColor = "#e74c3c";
         } else {
-            // 3. Pause the track cleanly
             musicElement.pause();
             musicButton.textContent = "🎵 Play Music";
-            musicButton.style.backgroundColor = "#4a4a4a"; 
-  }
-    }); // Closes the click listener function
-} // Closes the if statement checker
+            musicButton.style.backgroundColor = "#4a4a4a";
+        }
+    });
+}
