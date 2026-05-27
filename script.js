@@ -29,8 +29,8 @@ const musicButton = document.getElementById('music-btn');
 // Listen for a click on the music button
 musicButton.addEventListener('click', function() {
     if (musicElement.paused) {
-        // If the track is stopped, start playing it
-        musicElement.play();
+        musicElement.play().catch(function(error) {
+            console.log("Browser blocked autoplay error: ", error);
         musicButton.textContent = "⏸ Pause Music";
         musicButton.style.backgroundColor = "#e74c3c"; // Optional: turns red when playing
     } else {
