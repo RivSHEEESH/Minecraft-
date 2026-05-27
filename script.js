@@ -33,19 +33,32 @@ if (tipButton) {
 const musicElement = document.getElementById('bg-music');
 const musicButton = document.getElementById('music-btn');
 
-// Listen for a click on the music button
+// A safety switch to stop double-clicking/spam errors
+let isProcessing = false;
+
 if (musicButton && musicElement) {
     musicButton.addEventListener('click', function() {
+        // If the code is already working on a click, block any instant secondary clicks
+        if (isProcessing) return; 
+        isProcessing = true;
+
         if (musicElement.paused) {
-            musicElement.play().catch(function(error) {
-                console.log("Playback error:", error);
-            });
             musicButton.textContent = "⏸ Pause Music";
             musicButton.style.backgroundColor = "#e74c3c";
+            
+            musicElement.play()
+                .then(function() {
+                    isProcessing = false; // Unlock only after it successfully plays
+                })
+                .catch(function(error) {
+                    console.log("Playback error:", error);
+                    isProcessing = false;
+                });
         } else {
             musicElement.pause();
             musicButton.textContent = "🎵 Play Music";
             musicButton.style.backgroundColor = "#4a4a4a";
+            isProcessing = false; // Unlock instantly on pause
         }
     });
 }
