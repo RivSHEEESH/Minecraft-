@@ -21,26 +21,35 @@ function generateRandomTip() {
 }
 
 // Add an event listener to run the function when the button is clicked
-tipButton.addEventListener('click', generateRandomTip);
+if (tipButton) {
+    tipButton.addEventListener('click', generateRandomTip);
+}
+
+// ==========================================
+// BACKGROUND MUSIC AUDIO SYSTEM
+// ==========================================
+
 // Grab our audio and button elements from the HTML DOM
 const musicElement = document.getElementById('bg-music');
 const musicButton = document.getElementById('music-btn');
 
 // Listen for a click on the music button
-musicButton.addEventListener('click', function() {
-    if (musicElement.paused) {
-        // 1. SWAP THE TEXT IMMEDIATELY (So the button isn't frozen)
-        musicButton.textContent = "⏸ Pause Music";
-        musicButton.style.backgroundColor = "#e74c3c"; 
-        
-        // 2. Try to play the music safely
-        musicElement.play().catch(function(error) {
-            console.log("Audio couldn't play yet: ", error);
-        });
-    } else {
-        // If it's already playing, pause it safely
-        musicElement.pause();
-        musicButton.textContent = "🎵 Play Music";
-        musicButton.style.backgroundColor = "#4a4a4a"; 
-    }
-});
+if (musicButton && musicElement) {
+    musicButton.addEventListener('click', function() {
+        if (musicElement.paused) {
+            // 1. Force the visual changes immediately so it never freezes
+            musicButton.textContent = "⏸ Pause Music";
+            musicButton.style.backgroundColor = "#e74c3c"; 
+            
+            // 2. Play the sound file safely
+            musicElement.play().catch(function(error) {
+                console.log("Audio playback held by browser: ", error);
+            });
+        } else {
+            // 3. Pause the track cleanly
+            musicElement.pause();
+            musicButton.textContent = "🎵 Play Music";
+            musicButton.style.backgroundColor = "#4a4a4a"; 
+        }
+    });
+}
