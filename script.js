@@ -56,5 +56,5 @@ if (musicButton && musicElement) {
             musicButton.textContent = "🎵 Play Music";
             musicButton.style.backgroundColor = "#4a4a4a"; 
         }
-    });
-}
+ }
+});
