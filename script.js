@@ -29,14 +29,16 @@ const musicButton = document.getElementById('music-btn');
 // Listen for a click on the music button
 musicButton.addEventListener('click', function() {
     if (musicElement.paused) {
-        // Fixed: Removed the dot at the end of play()
-        musicElement.play().catch(function(error) {
-            console.log("Audio play failed: ", error);
-        });
+        // 1. SWAP THE TEXT IMMEDIATELY (So the button isn't frozen)
         musicButton.textContent = "⏸ Pause Music";
         musicButton.style.backgroundColor = "#e74c3c"; 
+        
+        // 2. Try to play the music safely
+        musicElement.play().catch(function(error) {
+            console.log("Audio couldn't play yet: ", error);
+        });
     } else {
-        // If the track is currently playing, pause it
+        // If it's already playing, pause it safely
         musicElement.pause();
         musicButton.textContent = "🎵 Play Music";
         musicButton.style.backgroundColor = "#4a4a4a"; 
