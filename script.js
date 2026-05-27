@@ -55,6 +55,6 @@ if (musicButton && musicElement) {
             musicElement.pause();
             musicButton.textContent = "🎵 Play Music";
             musicButton.style.backgroundColor = "#4a4a4a"; 
-        }
- }
-});
+  }
+    }); // Closes the click listener function
+} // Closes the if statement checker
